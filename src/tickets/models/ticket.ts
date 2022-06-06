@@ -45,8 +45,7 @@ const ticketSchema = new mongoose.Schema(
             type: String,
         },
         count: {
-            type: Number,
-            required: true,
+            type: Number
         },
         event: {
             type: mongoose.Schema.Types.ObjectId,
