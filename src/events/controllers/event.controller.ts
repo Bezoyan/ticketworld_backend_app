@@ -24,7 +24,7 @@ async function getEvents (req: Request, res: Response) {
 async  function getEventById (req: Request, res: Response) {
     try {
         const event = await Event.findById(req.params.eventId)
-            .populate("ticket");
+            .populate("tickets");
     
         if (!event) {
             return res.boom.notFound('event was not found');
@@ -92,9 +92,42 @@ async function removeEvent (req: Request, res: Response) {
     }
 }
 
+// TODO: Only for admin will implement letter
+async function editEvent(req: Request, res: Response) {
+    try {
+        const event = await Ticket.findByIdAndUpdate(req.params.id);
+        const jsonWebToken = req.headers.authorization?.split(' ')[1];
+    
+        const userToken = jwt.verify(jsonWebToken as any, process.env.JWT_SECRET!) as JwtPayload
+        const userId = userToken.id
+    
+        if (!event) {
+            throw res.boom.notFound('event not found');
+        }
+    
+    
+        // to update the event, the user must be the author of the ticket
+        if (!userId) {
+            throw res.boom.unauthorized('unauthorized');
+        }
+    
+        // event.set({
+        //     title: req.body.title,
+        //     price: req.body.price,
+        // });
+    
+        // await ticket.save();
+    
+        res.send(event);
+    } catch (error: any) {
+        throw new Error(error);
+    }
+}
+
 export default {
     getEvents,
     getEventById,
     creatEevent,
-    removeEvent
+    removeEvent,
+    editEvent
 }

@@ -18,6 +18,15 @@ router.post( "/events",
     ],
     EventController.creatEevent
 );
+router.put(
+    "/events/eventId",
+    [
+        body("title").not().isEmpty().withMessage("Title is required"),
+        body("description")
+            .not()
+            .isEmpty()
+            .withMessage("Price must be provided and must be greater than 0"),
+    ], EventController.editEvent)
 router.delete("/events/:eventId", EventController.removeEvent)
 
 
