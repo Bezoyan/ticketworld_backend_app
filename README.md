@@ -24,3 +24,5 @@ to run the server use "npm run start"
 
 Postman colletion link for testing API endpoints
 https://www.postman.com/zoyabezoyan/workspace/test-app-workspace/collection/6609220-b88bce41-2ca9-4a51-8ec8-74036aaff9a9?action=share&creator=6609220
+
+You can find postman calletion JSON file in the project

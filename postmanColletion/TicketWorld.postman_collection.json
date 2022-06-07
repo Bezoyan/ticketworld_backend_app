@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "779b9e35-2355-423a-8f29-39fa5888df5d",
+		"name": "TicketWorld",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "6609220"
+	},
+	"item": [
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "getAllTickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5005/tickets"
+					},
+					"response": []
+				},
+				{
+					"name": "createTicket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGYxNGJmZWJjYzUxNGU0OTUzNThhMSIsImVtYWlsIjoiem95YWJlem95YW5AZ21haWwuY29tIiwiaWF0IjoxNjUzNTQ0MTM5fQ.FyYT8qMCYsq5ajOTDKIY9-BRVkXTgnZ22jcMiVr1aKI"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"ACDC concert\",\n    \"price\": 20,\n    \"count\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5005/tickets"
+					},
+					"response": []
+				},
+				{
+					"name": "GetTicketById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:5005/tickets/628f1a56e0fb1657d0452423",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"tickets",
+								"628f1a56e0fb1657d0452423"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "newTitle",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTicket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Rock_concert",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1.0",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:5005/tickets/628f1a56e0fb1657d0452423"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "zoya21bezoyan@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:5005/users/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "zoya12bezoyan@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "user1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:5005/users/signin"
+					},
+					"response": []
+				},
+				{
+					"name": "SignOut",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:5005/users/signout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "getOrdersByUserID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTM2NTcwOTJ9.Y_pnDxCINK6fiEYz_eW7k6KNFtmHT9RK-5BIGFQ4R7s",
+								"type": "text"
+							}
+						],
+						"url": "localhost:5005/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "createOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"ticketId\":[\n        \"629dc584e44cd822dcac3035\",\n        \"629dc584e44cd822dcac3037\"\n    \n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5005/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "getOrderByID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5005/orders/629dc278c79aac183d5c540d"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "placePayment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "orderId",
+									"value": "629dc278c79aac183d5c540d",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:5005/payments"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "addEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"concert ACDC\",\n    \"description\":\"Heloooocdkfkdf\",\n    \"location\":\"Yerevan, Armenia\",\n    \"tickets\": [\n        {\"title\": \"ticket consert\", \n         \"price\": 30.0,\n         \"count\": 3\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5005/events"
+					},
+					"response": []
+				},
+				{
+					"name": "getEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5005/events"
+					},
+					"response": []
+				},
+				{
+					"name": "getEventById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:5005/events/62986a6dee98e66de4b39396"
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTBhZjNiY2RiM2M4Y2ZlYzM2MGVmNiIsImVtYWlsIjoiem95YTEyYmV6b3lhbkBnbWFpbC5jb20iLCJpYXQiOjE2NTQwMDA1ODR9.u43RQt9xdd077LPtxqYwjj9P98UefiZ58owSJPkDAPs"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Rock concert ACDC\",\n    \"description\":\"Heloooocdkfkdf\",\n    \"location\":\"Yerevan, Armenia\",\n    \"tickets\": [\n        {\"title\": \"ticket consert\", \n         \"price\": 30.0,\n         \"count\": 3\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:5005/events/62986a6dee98e66de4b39396"
+					},
+					"response": []
+				},
+				{
+					"name": "removeEvent",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:5005/events/62986a6dee98e66de4b39396"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
