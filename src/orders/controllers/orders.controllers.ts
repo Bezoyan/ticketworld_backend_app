@@ -56,7 +56,7 @@ async function createOrder (req: Request, res: Response) {
         let order = [];
         for (let i of ticketId) {
             ticket = await Ticket.findById(i);
-            console.log(ticket, 'inside for')
+    
             if (!ticket) {
                 return res.boom.notFound();;
             }
